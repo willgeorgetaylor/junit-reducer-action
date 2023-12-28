@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD013 -->
 
-# reduce-junit-reports
+# junit-reducer-action
 
 GitHub Action for compressing JUnit XML reports into an averaged set
 
@@ -61,7 +61,7 @@ jobs:
             --recursive
 
       - name: Reduce reports
-        uses: willgeorgetaylor/reduce-junit-reports
+        uses: willgeorgetaylor/junit-reducer-action
         with:
           include: ./reports/**/*
           output-path: ./average-reports/
