@@ -79,23 +79,11 @@ export async function run(): Promise<void> {
       ([key, value]) => `${key}=${value}`
     )
 
-    let stdout = ''
-    let stderr = ''
+    core.info(`Running junit-reducer with arguments: `)
+    core.info(Object.entries(inputs).map(([key, value]) => `${key}: ${value}`).join('\n'))
 
-    core.info(`Running junit-reducer with arguments: ${args}`)
-    await exec.exec('junit-reducer', args, {
-      listeners: {
-        stdout: data => {
-          stdout += data.toString()
-        },
-        stderr: data => {
-          stderr += data.toString()
-        }
-      }
-    })
+    await exec.exec('junit-reducer', args)
 
-    core.info(`junit-reducer stdout:\n${stdout}`)
-    core.info(`junit-reducer stderr:\n${stderr}`)
   } catch (error) {
     // Fail the workflow run if an error occurs
     if (error instanceof Error) core.setFailed(error.message)
