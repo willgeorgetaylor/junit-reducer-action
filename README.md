@@ -1,230 +1,83 @@
-# Create a GitHub Action Using TypeScript
+<!-- markdownlint-disable MD013 -->
 
-[![GitHub Super-Linter](https://github.com/actions/typescript-action/actions/workflows/linter.yml/badge.svg)](https://github.com/super-linter/super-linter)
-![CI](https://github.com/actions/typescript-action/actions/workflows/ci.yml/badge.svg)
-[![Check dist/](https://github.com/actions/typescript-action/actions/workflows/check-dist.yml/badge.svg)](https://github.com/actions/typescript-action/actions/workflows/check-dist.yml)
-[![CodeQL](https://github.com/actions/typescript-action/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/actions/typescript-action/actions/workflows/codeql-analysis.yml)
-[![Coverage](./badges/coverage.svg)](./badges/coverage.svg)
+# reduce-junit-reports
 
-Use this template to bootstrap the creation of a TypeScript action. :rocket:
+GitHub Action for compressing JUnit XML reports into an averaged set
 
-This template includes compilation support, tests, a validation workflow,
-publishing, and versioning guidance.
+## Inputs
 
-If you are new, there's also a simpler introduction in the
-[Hello world JavaScript action repository](https://github.com/actions/hello-world-javascript-action).
+All inputs are optional. However, these are the most important:
 
-## Create Your Own Action
+| Name | Description | Type | Default |
+| :---  | :--- | :--- | :--- |
+| `include` | Glob pattern to find input JUnit XML reports | `string` | `./**/*.xml` |
+| `output-path` | Output path for synthetic JUnit XML reports | `string` | `./output/` |
+| `exclude` | Glob pattern to exclude from input JUnit XML reports | `string` |  |
+| `version` | Version of [junit-reducer](https://github.com/willgeorgetaylor/junit-reducer/releases) CLI to use (e.g., `v1.0.0` or `latest`) | `string` | `latest` |
 
-To create your own action, you can use this repository as a template! Just
-follow the below instructions:
+### Additional inputs
 
-1. Click the **Use this template** button at the top of the repository
-1. Select **Create a new repository**
-1. Select an owner and name for your new repository
-1. Click **Create repository**
-1. Clone your new repository
+| Name | Description | Type | Default |
+| :---  | :--- | :--- | :--- |
+| `op-suites-time` | Operation for test suites time. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
+| `op-cases-time` | Operation for test cases time. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
+| `op-suites-assertions` | Operation for test suites assertions. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
+| `op-suites-errors` | Operation for test suites errors. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
+| `op-suites-failures` | Operation for test suites failures. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
+| `op-suites-skipped` | Operation for test suites skipped. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
+| `op-suites-tests` | Operation for test suites tests. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
+| `reduce-suites-by` | Operation for test suites tests. Options: `filepath`, `name` or `name+filepath` | `string` | `name+filepath` |
+| `reduce-cases-by` | Reduce test cases by name, classname, or file. Options: `classname`, `file` or `name` | `string` | `name` |
+| `rounding-mode` | Rounding mode for counts that should be integers. Options: `ceil`, `floor` or `round` | `string` | `round` |
 
-> [!IMPORTANT]
->
-> Make sure to remove or update the [`CODEOWNERS`](./CODEOWNERS) file! For
-> details on how to use this file, see
-> [About code owners](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
-
-## Initial Setup
-
-After you've cloned the repository to your local machine or codespace, you'll
-need to perform some initial setup steps before you can develop your action.
-
-> [!NOTE]
->
-> You'll need to have a reasonably modern version of
-> [Node.js](https://nodejs.org) handy (20.x or later should work!). If you are
-> using a version manager like [`nodenv`](https://github.com/nodenv/nodenv) or
-> [`nvm`](https://github.com/nvm-sh/nvm), this template has a `.node-version`
-> file at the root of the repository that will be used to automatically switch
-> to the correct version when you `cd` into the repository. Additionally, this
-> `.node-version` file is used by GitHub Actions in any `actions/setup-node`
-> actions.
-
-1. :hammer_and_wrench: Install the dependencies
-
-   ```bash
-   npm install
-   ```
-
-1. :building_construction: Package the TypeScript for distribution
-
-   ```bash
-   npm run bundle
-   ```
-
-1. :white_check_mark: Run the tests
-
-   ```bash
-   $ npm test
-
-   PASS  ./index.test.js
-     ✓ throws invalid number (3ms)
-     ✓ wait 500 ms (504ms)
-     ✓ test runs (95ms)
-
-   ...
-   ```
-
-## Update the Action Metadata
-
-The [`action.yml`](action.yml) file defines metadata about your action, such as
-input(s) and output(s). For details about this file, see
-[Metadata syntax for GitHub Actions](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions).
-
-When you copy this repository, update `action.yml` with the name, description,
-inputs, and outputs for your action.
-
-## Update the Action Code
-
-The [`src/`](./src/) directory is the heart of your action! This contains the
-source code that will be run when your action is invoked. You can replace the
-contents of this directory with your own code.
-
-There are a few things to keep in mind when writing your action code:
-
-- Most GitHub Actions toolkit and CI/CD operations are processed asynchronously.
-  In `main.ts`, you will see that the action is run in an `async` function.
-
-  ```javascript
-  import * as core from '@actions/core'
-  //...
-
-  async function run() {
-    try {
-      //...
-    } catch (error) {
-      core.setFailed(error.message)
-    }
-  }
-  ```
-
-  For more information about the GitHub Actions toolkit, see the
-  [documentation](https://github.com/actions/toolkit/blob/master/README.md).
-
-So, what are you waiting for? Go ahead and start customizing your action!
-
-1. Create a new branch
-
-   ```bash
-   git checkout -b releases/v1
-   ```
-
-1. Replace the contents of `src/` with your action code
-1. Add tests to `__tests__/` for your source code
-1. Format, test, and build the action
-
-   ```bash
-   npm run all
-   ```
-
-   > [!WARNING]
-   >
-   > This step is important! It will run [`ncc`](https://github.com/vercel/ncc)
-   > to build the final JavaScript action code with all dependencies included.
-   > If you do not run this step, your action will not work correctly when it is
-   > used in a workflow. This step also includes the `--license` option for
-   > `ncc`, which will create a license file for all of the production node
-   > modules used in your project.
-
-1. Commit your changes
-
-   ```bash
-   git add .
-   git commit -m "My first action is ready!"
-   ```
-
-1. Push them to your repository
-
-   ```bash
-   git push -u origin releases/v1
-   ```
-
-1. Create a pull request and get feedback on your action
-1. Merge the pull request into the `main` branch
-
-Your action is now published! :rocket:
-
-For information about versioning your action, see
-[Versioning](https://github.com/actions/toolkit/blob/master/docs/action-versioning.md)
-in the GitHub Actions toolkit.
-
-## Validate the Action
-
-You can now validate the action by referencing it in a workflow file. For
-example, [`ci.yml`](./.github/workflows/ci.yml) demonstrates how to reference an
-action in the same repository.
+## Example Workflow
 
 ```yaml
-steps:
-  - name: Checkout
-    id: checkout
-    uses: actions/checkout@v4
+name: junit-test-report-averaging
+run-name: Create Average JUnit Test Reports
+on:
+  schedule:
+      # Run every morning at 8AM
+      - cron:  '0 8 * * *'
+jobs:
+  reduce-reports:
+    runs-on: ubuntu-latest
+    steps:
+      # Configure with the Cloud storage provider of your choice.
+      - name: Setup AWS CLI
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.YOUR_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.YOUR_AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
 
-  - name: Test Local Action
-    id: test-action
-    uses: ./
-    with:
-      milliseconds: 1000
+      # Download all test reports from all CI runs.
+      # It is recommended to set up a lifecycle rule, to remove objects older
+      # than a certain age from this bucket/path. This will help to keep the test reports
+      # current and keep this job from taking too long.
+      - name: Download test timings
+        run: |
+          aws s3 cp s3://your-junit-report-bucket/ci-runs-reports/ reports/ \
+            --recursive
 
-  - name: Print Output
-    id: output
-    run: echo "${{ steps.test-action.outputs.time }}"
+      - name: Reduce reports
+        uses: willgeorgetaylor/reduce-junit-reports
+        with:
+          include: ./reports/**/*
+          output-path: ./average-reports/
+
+      # Upload the reduced set of test reports to a dedicated bucket/path.
+      # In your actual CI process, the CI runners will copy the contents of
+      # this path locally, to be ingested by the test splitter.
+      - name: Upload single set of averaged reports
+        run: |
+          aws s3 sync ./average-reports s3://your-junit-report-bucket/average-reports/ \
+            --size-only \
+            --cache-control max-age=86400
 ```
 
-For example workflow runs, check out the
-[Actions tab](https://github.com/actions/typescript-action/actions)! :rocket:
+## Dependencies
 
-## Usage
+This action invokes [willgeorgetaylor/junit-reducer](https://github.com/willgeorgetaylor/junit-reducer) to reduce the test reports.
 
-After testing, you can create version tag(s) that developers can use to
-reference different stable versions of your action. For more information, see
-[Versioning](https://github.com/actions/toolkit/blob/master/docs/action-versioning.md)
-in the GitHub Actions toolkit.
-
-To include the action in a workflow in another repository, you can use the
-`uses` syntax with the `@` symbol to reference a specific branch, tag, or commit
-hash.
-
-```yaml
-steps:
-  - name: Checkout
-    id: checkout
-    uses: actions/checkout@v4
-
-  - name: Test Local Action
-    id: test-action
-    uses: actions/typescript-action@v1 # Commit with the `v1` tag
-    with:
-      milliseconds: 1000
-
-  - name: Print Output
-    id: output
-    run: echo "${{ steps.test-action.outputs.time }}"
-```
-
-## Publishing a new release
-
-This project includes a helper script designed to streamline the process of
-tagging and pushing new releases for GitHub Actions.
-
-GitHub Actions allows users to select a specific version of the action to use,
-based on release tags. Our script simplifies this process by performing the
-following steps:
-
-1. **Retrieving the latest release tag:** The script starts by fetching the most
-   recent release tag by looking at the local data available in your repository.
-1. **Prompting for a new release tag:** The user is then prompted to enter a new
-   release tag. To assist with this, the script displays the latest release tag
-   and provides a regular expression to validate the format of the new tag.
-1. **Tagging the new release:** Once a valid new tag is entered, the script tags
-   the new release.
-1. **Pushing the new tag to the remote:** Finally, the script pushes the new tag
-   to the remote repository. From here, you will need to create a new release in
-   GitHub and users can easily reference the new tag in their workflows.
+If you prefer to use the command-line tool directly, there are instructions for that on the [repository readme](https://github.com/willgeorgetaylor/junit-reducer?tab=readme-ov-file#github-actions).

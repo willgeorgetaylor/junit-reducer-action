@@ -1,23 +1,66 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: Reduce JUnit Tests
+author: willgeorgetaylor@gmail.com
+description: Compute an averaged set of JUnit XML reports for efficiently splitting tests in CI.
 
-# Add your action's branding here. This will appear on the GitHub Marketplace.
-branding:
-  icon: 'heart'
-  color: 'red'
-
-# Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
-    required: true
-    default: '1000'
+  include:
+    description: Glob pattern to find input JUnit XML reports (default "./**/*.xml") (string)
+    default: "./**/*.xml"
+    required: false
+  output-path:
+    description: Output path for synthetic JUnit XML reports (default "./output/") (string)
+    default: "./output/"
+    required: false
+  exclude:
+    description: Glob pattern to exclude from input JUnit XML reports (string)
+    required: false
+  version:
+    description: Version of junit-reducer CLI to use (default "latest") (string)
+    default: "latest"
+  op-cases-time:
+    description: Operation for test cases time. Options are "max", "mean", "median", "min", "mode" or "sum" (default "mean") (string)
+    default: "mean"
+    required: false
+  op-suites-time:
+    description: Operation for test suites time. Options are "max", "mean", "median", "min", "mode" or "sum" (default "mean") (string)
+    default: "mean"
+    required: false
+  op-suites-assertions:
+    description: Operation for test suites assertions. Options are "max", "mean", "median", "min", "mode" or "sum" (default "mean") (string)
+    default: "mean"
+    required: false
+  op-suites-errors:
+    description: Operation for test suites errors. Options are "max", "mean", "median", "min", "mode" or "sum" (default "mean") (string)
+    default: "mean"
+    required: false
+  op-suites-failures:
+    description: Operation for test suites failures. Options are "max", "mean", "median", "min", "mode" or "sum" (default "mean") (string)
+    default: "mean"
+    required: false
+  op-suites-skipped:
+    description: Operation for test suites skipped. Options are "max", "mean", "median", "min", "mode" or "sum" (default "mean") (string)
+    default: "mean"
+    required: false
+  op-suites-tests:
+    description: Operation for test suites tests. Options are "max", "mean", "median", "min", "mode" or "sum" (default "mean") (string)
+    default: "mean"
+    required: false
+  reduce-suites-by:
+    description: Reduce test suites by name or filepath or both. Options are "filepath", "name" or "name+filepath" (default "name+filepath") (string)
+    default: "name+filepath"
+    required: false
+  reduce-cases-by:
+    description: Reduce test cases by name, classname, or file. Options are "classname", "file" or "name" (default "name") (string)
+    default: "name"
+    required: false
+  rounding-mode:
+    description: Rounding mode for counts that should be integers. Options are "ceil", "floor" or "round" (default "round") (string)
+    default: "round"
+    required: false
 
-# Define your outputs here.
-outputs:
-  time:
-    description: 'Your output description here'
+branding:
+  icon: minimize-2
+  color: blue
 
 runs:
   using: node20

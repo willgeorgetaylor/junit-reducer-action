@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Admin::Jobs::Applications::Actions::CreativeServicesIncBackgroundCheckTest" filepath="test/system/admin/jobs/applications/actions/creative_services_inc_background_check_test.rb" skipped="0" failures="0" errors="0" tests="2" assertions="14" time="29.099594811999992">
+    <testcase name="test_should_show_each_of_the_different_values_depending_on_which_billing_option_you_select" lineno="90" classname="Admin::Jobs::Applications::Actions::CreativeServicesIncBackgroundCheckTest" assertions="0" time="15.373165432000008" file="test/system/admin/jobs/applications/actions/creative_services_inc_background_check_test.rb">
+    </testcase>
+    <testcase name="test_should_not_be_able_to_view_a_background_check_without_background_check_viewer_role" lineno="176" classname="Admin::Jobs::Applications::Actions::CreativeServicesIncBackgroundCheckTest" assertions="2" time="6.697016684999994" file="test/system/admin/jobs/applications/actions/creative_services_inc_background_check_test.rb">
+    </testcase>
+    <testcase name="test_should_not_see_Creative_Services_Inc_integration_when_removed" lineno="53" classname="Admin::Jobs::Applications::Actions::CreativeServicesIncBackgroundCheckTest" assertions="1" time="7.1485544199999822" file="test/system/admin/jobs/applications/actions/creative_services_inc_background_check_test.rb">
+    </testcase>
+  </testsuite>
+</testsuites>
