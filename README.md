@@ -1,5 +1,6 @@
 # reduce-junit-reports
- GitHub Action for compressing JUnit XML reports into an averaged set
+
+GitHub Action for compressing JUnit XML reports into an averaged set
 
 ## Inputs
 
@@ -73,4 +74,4 @@ jobs:
 ```
 
 ## Dependencies
-This action invokes [willgeorgetaylor/junit-reducer](https://github.com/willgeorgetaylor/junit-reducer) to reduce the test reports. If you prefer to use the CLI tool directly, there are instructions for that on the [repo readme](https://github.com/willgeorgetaylor/junit-reducer?tab=readme-ov-file#github-actions).
+This action invokes [willgeorgetaylor/junit-reducer](https://github.com/willgeorgetaylor/junit-reducer) to reduce the test reports. If you prefer to use the command-line tool directly, there are instructions for that on the [repository readme](https://github.com/willgeorgetaylor/junit-reducer?tab=readme-ov-file#github-actions).
