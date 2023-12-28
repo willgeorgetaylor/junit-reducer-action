@@ -1,3 +1,5 @@
+<!-- markdownlint-disable line-length -->
+
 # reduce-junit-reports
 
 GitHub Action for compressing JUnit XML reports into an averaged set
@@ -5,6 +7,8 @@ GitHub Action for compressing JUnit XML reports into an averaged set
 ## Inputs
 
 All inputs are optional. However, these are the most important:
+
+<!-- markdownlint-disable -->
 
 | Name | Description | Type | Default |
 | :---  | :--- | :--- | :--- |
@@ -28,7 +32,10 @@ All inputs are optional. However, these are the most important:
 | `reduce-cases-by` | Reduce test cases by name, classname, or file. Options: `classname`, `file` or `name` | `string` | `name` |
 | `rounding-mode` | Rounding mode for counts that should be integers. Options: `ceil`, `floor` or `round` | `string` | `round` |
 
+<!-- markdownlint-enable -->
+
 ## Example Workflow
+
 ```yaml
 name: junit-test-report-averaging
 run-name: Create Average JUnit Test Reports
@@ -74,4 +81,7 @@ jobs:
 ```
 
 ## Dependencies
-This action invokes [willgeorgetaylor/junit-reducer](https://github.com/willgeorgetaylor/junit-reducer) to reduce the test reports. If you prefer to use the command-line tool directly, there are instructions for that on the [repository readme](https://github.com/willgeorgetaylor/junit-reducer?tab=readme-ov-file#github-actions).
+
+This action invokes [willgeorgetaylor/junit-reducer](https://github.com/willgeorgetaylor/junit-reducer) to reduce the test reports.
+
+If you prefer to use the command-line tool directly, there are instructions for that on the [repository readme](https://github.com/willgeorgetaylor/junit-reducer?tab=readme-ov-file#github-actions).
