@@ -20,7 +20,8 @@ function enumerateInputs(): Record<string, string> {
 }
 
 function formatReleaseUrl(suffix: string, version: string): string {
-  if (version === 'latest') return `${BASE_RELEASE_URL}latest/download/junit-reducer_${suffix}`
+  if (version === 'latest')
+    return `${BASE_RELEASE_URL}latest/download/junit-reducer_${suffix}`
   return `${BASE_RELEASE_URL}download/${version}/junit-reducer_${suffix}`
 }
 

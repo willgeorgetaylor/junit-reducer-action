@@ -6617,7 +6617,7 @@ exports.run = void 0;
 const core = __importStar(__nccwpck_require__(2186));
 const tc = __importStar(__nccwpck_require__(7784));
 const exec = __importStar(__nccwpck_require__(1514));
-const BASE_RELEASE_URL = 'https://github.com/willgeorgetaylor/junit-reducer/releases/download/';
+const BASE_RELEASE_URL = 'https://github.com/willgeorgetaylor/junit-reducer/releases/';
 // We're doing it this way so we can passthrough
 // inputs without needing to extract them individually.
 function enumerateInputs() {
@@ -6632,7 +6632,9 @@ function enumerateInputs() {
     return inputs;
 }
 function formatReleaseUrl(suffix, version) {
-    return `${BASE_RELEASE_URL}${version}/junit-reducer_${suffix}`;
+    if (version === 'latest')
+        return `${BASE_RELEASE_URL}latest/download/junit-reducer_${suffix}`;
+    return `${BASE_RELEASE_URL}download/${version}/junit-reducer_${suffix}`;
 }
 /**
  * The main function for the action.
