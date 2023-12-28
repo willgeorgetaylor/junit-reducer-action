@@ -3,7 +3,7 @@ import * as tc from '@actions/tool-cache'
 import * as exec from '@actions/exec'
 
 const BASE_RELEASE_URL =
-  'https://github.com/willgeorgetaylor/junit-reducer/releases/download/'
+  'https://github.com/willgeorgetaylor/junit-reducer/releases/'
 
 // We're doing it this way so we can passthrough
 // inputs without needing to extract them individually.
@@ -20,7 +20,8 @@ function enumerateInputs(): Record<string, string> {
 }
 
 function formatReleaseUrl(suffix: string, version: string): string {
-  return `${BASE_RELEASE_URL}${version}/junit-reducer_${suffix}`
+  if (version === 'latest') return `${BASE_RELEASE_URL}latest/download/junit-reducer_${suffix}`
+  return `${BASE_RELEASE_URL}download/${version}/junit-reducer_${suffix}`
 }
 
 /**
