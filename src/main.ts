@@ -1,7 +1,6 @@
 import * as core from '@actions/core'
 import * as tc from '@actions/tool-cache'
 import * as exec from '@actions/exec'
-import { wait } from './wait'
 
 const BASE_RELEASE_URL =
   'https://github.com/willgeorgetaylor/junit-reducer/releases/download/'
@@ -81,7 +80,7 @@ export async function run(): Promise<void> {
     let stdout = ''
     let stderr = ''
 
-    core.info(`Running junit-reducer with arguments: ${arguments}`)
+    core.info(`Running junit-reducer with arguments: ${args}`)
     await exec.exec('junit-reducer', args, {
       listeners: {
         stdout: data => {
