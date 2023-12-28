@@ -6672,21 +6672,11 @@ async function run() {
         }
         const inputs = enumerateInputs();
         const args = Object.entries(inputs).map(([key, value]) => `${key}=${value}`);
-        let stdout = '';
-        let stderr = '';
-        core.info(`Running junit-reducer with arguments: ${args}`);
-        await exec.exec('junit-reducer', args, {
-            listeners: {
-                stdout: data => {
-                    stdout += data.toString();
-                },
-                stderr: data => {
-                    stderr += data.toString();
-                }
-            }
-        });
-        core.info(`junit-reducer stdout:\n${stdout}`);
-        core.info(`junit-reducer stderr:\n${stderr}`);
+        core.info(`Running junit-reducer with arguments: `);
+        core.info(Object.entries(inputs)
+            .map(([key, value]) => `${key}: ${value}`)
+            .join('\n'));
+        await exec.exec('junit-reducer', args);
     }
     catch (error) {
         // Fail the workflow run if an error occurs
