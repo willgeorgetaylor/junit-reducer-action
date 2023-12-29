@@ -13,7 +13,7 @@ function enumerateInputs(): Record<string, string> {
     if (key.startsWith('INPUT_')) {
       const inputName = key.slice('INPUT_'.length).toLowerCase()
       const inputValue = process.env[key]
-      if (inputName !== 'version') {
+      if (inputValue && inputName !== 'version') {
         inputs[inputName] = inputValue || ''
       }
     }
@@ -78,15 +78,16 @@ export async function run(): Promise<void> {
 
     const inputs = enumerateInputs()
     const args: string[] = Object.entries(inputs).map(
-      ([key, value]) => `${key}=${value}`
+      ([key, value]) => `--${key}='${value}'`
     )
 
-    core.info(`Running junit-reducer with arguments: `)
+    core.startGroup(`Running junit-reducer with arguments: `)
     core.info(
       Object.entries(inputs)
         .map(([key, value]) => `${key}: ${value}`)
         .join('\n')
     )
+    core.endGroup()
 
     await exec.exec('junit-reducer', args)
   } catch (error) {
