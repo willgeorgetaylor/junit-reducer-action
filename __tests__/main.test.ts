@@ -8,6 +8,7 @@
 
 import * as core from '@actions/core'
 import * as main from '../src/main'
+import { existsSync, unlinkSync } from 'fs'
 
 // Mock the action's main function
 const runMock = jest.spyOn(main, 'run')
@@ -36,6 +37,31 @@ describe('action', () => {
     expect(infoMock).toHaveBeenLastCalledWith(
       'junit-reducer exited successfully'
     )
+  })
+
+  describe('with inputs', () => {
+    beforeEach(() => {
+      process.env['INPUT_include'] = './__tests__/fixtures/*.xml'
+      process.env['INPUT_output-path'] = './__tests__/outputs'
+      if (existsSync('./__tests__/outputs/Sample.xml')) {
+        unlinkSync('./__tests__/outputs/Sample.xml')
+      }
+    })
+    it('successfully outputs reduced reports', async () => {
+      await main.run()
+      expect(runMock).toHaveReturned()
+      expect(errorMock).not.toHaveBeenCalled()
+      expect(setFailedMock).not.toHaveBeenCalled()
+      expect(infoMock).toHaveBeenLastCalledWith(
+        'junit-reducer exited successfully'
+      )
+      // Expect that file exists there
+      expect(existsSync('./__tests__/outputs/Sample.xml')).toBe(true)
+    })
+    afterEach(() => {
+      delete process.env.INPUT_include
+      delete process.env.INPUT_output
+    })
   })
 
   it('successfully completes with a specific version', async () => {

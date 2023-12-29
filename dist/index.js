@@ -6696,7 +6696,7 @@ async function run() {
         });
         core.addPath(pathToCLI);
         const inputs = enumerateInputs();
-        const args = Object.entries(inputs).map(([key, value]) => `--${key} = ${value}`);
+        const args = Object.entries(inputs).map(([key, value]) => `--${key}=${value}`);
         core.startGroup(`Running junit - reducer with arguments: `);
         core.info(Object.entries(inputs)
             .map(([key, value]) => `${key}: ${value} `)

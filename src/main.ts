@@ -107,7 +107,7 @@ export async function run(): Promise<void> {
 
     const inputs = enumerateInputs()
     const args: string[] = Object.entries(inputs).map(
-      ([key, value]) => `--${key} = ${value}`
+      ([key, value]) => `--${key}=${value}`
     )
 
     core.startGroup(`Running junit - reducer with arguments: `)
