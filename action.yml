@@ -1,4 +1,4 @@
-name: Reduce JUnit Tests
+name: Reduce JUnit XML Test Reports
 author: willgeorgetaylor@gmail.com
 description: Compute an averaged set of JUnit XML reports for efficiently splitting tests in CI.
 
