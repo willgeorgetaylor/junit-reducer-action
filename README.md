@@ -8,7 +8,6 @@
 
 <!-- markdownlint-disable MD013 -->
 
-
 GitHub Action for compressing JUnit XML reports into an averaged set
 
 ## Inputs
