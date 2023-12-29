@@ -1,3 +1,5 @@
+# junit-reducer-action
+
 [![GitHub Super-Linter](https://github.com/willgeorgetaylor/junit-reducer-action/actions/workflows/linter.yml/badge.svg)](https://github.com/super-linter/super-linter)
 ![CI](https://github.com/willgeorgetaylor/junit-reducer-action/actions/workflows/ci.yml/badge.svg)
 [![Check dist/](https://github.com/willgeorgetaylor/junit-reducer-action/actions/workflows/check-dist.yml/badge.svg)](https://github.com/willgeorgetaylor/junit-reducer-action/actions/workflows/check-dist.yml)
@@ -6,7 +8,6 @@
 
 <!-- markdownlint-disable MD013 -->
 
-# junit-reducer-action
 
 GitHub Action for compressing JUnit XML reports into an averaged set
 
