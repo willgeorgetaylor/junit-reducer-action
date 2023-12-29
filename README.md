@@ -30,7 +30,7 @@ All inputs are optional. However, these are the most important:
 | `include` | Glob pattern to find input JUnit XML reports | `string` | `./**/*.xml` |
 | `output-path` | Output path for synthetic JUnit XML reports | `string` | `./output/` |
 | `exclude` | Glob pattern to exclude from input JUnit XML reports | `string` |  |
-| `version` | Version of [junit-reducer](https://github.com/willgeorgetaylor/junit-reducer/releases) CLI to use (e.g., `v1.0.0` or `latest`) | `string` | `latest` |
+| `version` | Version of [junit-reducer](https://github.com/willgeorgetaylor/junit-reducer/releases) command-line tool to use (e.g., `v1.0.0` or `latest`) | `string` | `latest` |
 
 ### Additional inputs
 
