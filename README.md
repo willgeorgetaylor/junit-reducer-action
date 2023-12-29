@@ -8,7 +8,7 @@
 [![CodeQL](https://github.com/willgeorgetaylor/junit-reducer-action/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/willgeorgetaylor/junit-reducer-action/actions/workflows/codeql-analysis.yml)
 [![Coverage](./badges/coverage.svg)](./badges/coverage.svg)
 
-JUnit Reducer is a CLI tool that aggregates the [JUnit test XML reports](https://www.ibm.com/docs/en/developer-for-zos/14.1?topic=formats-junit-xml-format) from your CI runs and creates a single, averaged report set. This lets you download a smaller set of reports, during CI runs, to inform your test splitting.
+JUnit Reducer is a command-line tool that aggregates the [JUnit test XML reports](https://www.ibm.com/docs/en/developer-for-zos/14.1?topic=formats-junit-xml-format) from your CI runs and creates a single, averaged report set. This lets you download a smaller set of reports, during CI runs, to inform your test splitting.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./diagram-dark.png">
