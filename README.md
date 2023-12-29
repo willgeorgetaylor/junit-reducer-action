@@ -76,7 +76,7 @@ jobs:
             --recursive
 
       - name: Reduce reports
-        uses: willgeorgetaylor/junit-reducer-action
+        uses: willgeorgetaylor/junit-reducer-action@v1
         with:
           include: ./reports/**/*
           output-path: ./average-reports/
