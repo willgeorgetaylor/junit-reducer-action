@@ -38,7 +38,7 @@ All inputs are optional. However, these are the most important:
 | `op-cases-time` | Operation for test cases time. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
 | `op-suites-assertions` | Operation for test suites assertions. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
 | `op-suites-errors` | Operation for test suites errors. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
-| `op-suites-failures` | Operation for test suites failures. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
+| `op-suites-failed` | Operation for test suites failed. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
 | `op-suites-skipped` | Operation for test suites skipped. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
 | `op-suites-tests` | Operation for test suites tests. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
 | `reduce-suites-by` | Operation for test suites tests. Options: `filepath`, `name` or `name+filepath` | `string` | `name+filepath` |

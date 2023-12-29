@@ -33,8 +33,8 @@ inputs:
     description: Operation for test suites errors. Options are "max", "mean", "median", "min", "mode" or "sum" (default "mean") (string)
     default: "mean"
     required: false
-  op-suites-failures:
-    description: Operation for test suites failures. Options are "max", "mean", "median", "min", "mode" or "sum" (default "mean") (string)
+  op-suites-failed:
+    description: Operation for test suites failed. Options are "max", "mean", "median", "min", "mode" or "sum" (default "mean") (string)
     default: "mean"
     required: false
   op-suites-skipped:
