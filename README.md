@@ -19,8 +19,6 @@ JUnit Reducer is a CLI tool that aggregates the [JUnit test XML reports](https:/
 
 Typically, you'll be using `junit-reducer` within a scheduled cron task to reduce a trailing window of JUnit XML reports. From a speed and cost perspective, it's generally a good idea to retrieve and store both the inputs (JUnit XML reports) and outputs (averaged XML reports) in a cloud storage service like AWS S3 or Google Cloud Storage as opposed to the caching APIs available from the CI providers themselves.
 
-GitHub Action for compressing JUnit XML reports into an averaged set
-
 ## Inputs
 
 All inputs are optional. However, these are the most important:
