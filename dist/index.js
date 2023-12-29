@@ -6649,6 +6649,7 @@ async function run() {
             // Windows
             const reducerReleaseUrl = await tc.downloadTool(formatReleaseUrl('Windows_x86_64.zip', version));
             const pathToCLI = await core.group('Downloading Windows binary (.zip)', async () => {
+                core.info(`Downloading from ${reducerReleaseUrl}...`);
                 const path = tc.extractZip(reducerReleaseUrl);
                 return path;
             });
@@ -6658,6 +6659,7 @@ async function run() {
             // Mac
             const reducerReleaseUrl = await tc.downloadTool(formatReleaseUrl('Darwin_x86_64.tar.gz', version));
             const pathToCLI = await core.group('Downloading Mac binary (.tar.gz)', async () => {
+                core.info(`Downloading from ${reducerReleaseUrl}...`);
                 const path = tc.extractTar(reducerReleaseUrl);
                 return path;
             });
@@ -6667,6 +6669,7 @@ async function run() {
             // Linux
             const reducerReleaseUrl = await tc.downloadTool(formatReleaseUrl('Linux_x86_64.tar.gz', version));
             const pathToCLI = await core.group('Downloading Linux binary (.tar.gz)', async () => {
+                core.info(`Downloading from ${reducerReleaseUrl}...`);
                 const path = tc.extractTar(reducerReleaseUrl);
                 return path;
             });

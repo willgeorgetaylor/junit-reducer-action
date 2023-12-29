@@ -43,6 +43,7 @@ export async function run(): Promise<void> {
       const pathToCLI = await core.group(
         'Downloading Windows binary (.zip)',
         async () => {
+          core.info(`Downloading from ${reducerReleaseUrl}...`)
           const path = tc.extractZip(reducerReleaseUrl)
           return path
         }
@@ -56,6 +57,7 @@ export async function run(): Promise<void> {
       const pathToCLI = await core.group(
         'Downloading Mac binary (.tar.gz)',
         async () => {
+          core.info(`Downloading from ${reducerReleaseUrl}...`)
           const path = tc.extractTar(reducerReleaseUrl)
           return path
         }
@@ -69,6 +71,7 @@ export async function run(): Promise<void> {
       const pathToCLI = await core.group(
         'Downloading Linux binary (.tar.gz)',
         async () => {
+          core.info(`Downloading from ${reducerReleaseUrl}...`)
           const path = tc.extractTar(reducerReleaseUrl)
           return path
         }
