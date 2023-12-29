@@ -1,6 +1,12 @@
-<!-- markdownlint-disable MD013 -->
+# junit-reducer-action
 
-# reduce-junit-reports
+[![GitHub Super-Linter](https://github.com/willgeorgetaylor/junit-reducer-action/actions/workflows/linter.yml/badge.svg)](https://github.com/super-linter/super-linter)
+![CI](https://github.com/willgeorgetaylor/junit-reducer-action/actions/workflows/ci.yml/badge.svg)
+[![Check dist/](https://github.com/willgeorgetaylor/junit-reducer-action/actions/workflows/check-dist.yml/badge.svg)](https://github.com/willgeorgetaylor/junit-reducer-action/actions/workflows/check-dist.yml)
+[![CodeQL](https://github.com/willgeorgetaylor/junit-reducer-action/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/willgeorgetaylor/junit-reducer-action/actions/workflows/codeql-analysis.yml)
+[![Coverage](./badges/coverage.svg)](./badges/coverage.svg)
+
+<!-- markdownlint-disable MD013 -->
 
 GitHub Action for compressing JUnit XML reports into an averaged set
 
@@ -61,7 +67,7 @@ jobs:
             --recursive
 
       - name: Reduce reports
-        uses: willgeorgetaylor/reduce-junit-reports
+        uses: willgeorgetaylor/junit-reducer-action
         with:
           include: ./reports/**/*
           output-path: ./average-reports/

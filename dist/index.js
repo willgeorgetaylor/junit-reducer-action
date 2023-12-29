@@ -6626,7 +6626,9 @@ function enumerateInputs() {
         if (key.startsWith('INPUT_')) {
             const inputName = key.slice('INPUT_'.length).toLowerCase();
             const inputValue = process.env[key];
-            inputs[inputName] = inputValue || '';
+            if (inputName !== 'version') {
+                inputs[inputName] = inputValue || '';
+            }
         }
     }
     return inputs;
