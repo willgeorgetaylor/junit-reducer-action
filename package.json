@@ -39,6 +39,7 @@
   "jest": {
     "preset": "ts-jest",
     "verbose": true,
+    "silent": false,
     "clearMocks": true,
     "testEnvironment": "node",
     "moduleFileExtensions": [

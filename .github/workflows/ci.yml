@@ -54,4 +54,4 @@ jobs:
       - name: Test Local Action
         uses: ./
         with:
-          include: ./fixtures/*.xml
+          include: ./__tests__/fixtures/*.xml
