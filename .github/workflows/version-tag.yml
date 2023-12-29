@@ -7,6 +7,8 @@ on:
 
 jobs:
   update-majorver:
+    permissions:
+      contents: write
     name: Update Major Version Tag
     runs-on: ubuntu-latest
     steps:
