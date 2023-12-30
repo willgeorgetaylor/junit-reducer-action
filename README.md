@@ -39,8 +39,8 @@ All inputs are optional. However, these are the most important:
 | `op-suites-assertions` | Reducer operation for test suite assertion counts. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
 | `op-suites-errors` | Reducer operation for test suite error counts. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
 | `op-suites-failed` | Reducer operation for test suite failure counts. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
-| `op-suites-skipped` | Operation for test suite skipped counts. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
-| `op-suites-tests` | Operation for test suite test counts. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
+| `op-suites-skipped` | Reducer operation for test suite skipped counts. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
+| `op-suites-tests` | Reducer operation for test suite test counts. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
 | `reduce-suites-by` | Specify a key (corresponding to the attribute on the test suite nodes) to group and reduce test suites by. Options: `filepath`, `name` or `name+filepath` | `string` | `name+filepath` |
 | `reduce-cases-by` | Specify a key (corresponding to the attribute on the test case nodes) to group and reduce test cases by. Options: `classname`, `file` or `name` | `string` | `name` |
 | `rounding-mode` | Rounding mode for counts (`assertions`, `errors`, `failed`, `skipped` and `tests`) that should be integers in the final result. Options: `ceil`, `floor` or `round` | `string` | `round` |
