@@ -25,25 +25,25 @@ All inputs are optional. However, these are the most important:
 
 | Name | Description | Type | Default |
 | :---  | :--- | :--- | :--- |
-| `include` | Glob pattern to find input JUnit XML reports | `string` | `./**/*.xml` |
-| `output-path` | Output path for synthetic JUnit XML reports | `string` | `./output/` |
-| `exclude` | Glob pattern to exclude from input JUnit XML reports | `string` |  |
-| `version` | Version of [junit-reducer](https://github.com/willgeorgetaylor/junit-reducer/releases) command-line tool to use (e.g., `v1.0.0` or `latest`) | `string` | `latest` |
+| `include` | Glob pattern to find JUnit XML reports to reduce | `string` | `./**/*.xml` |
+| `output-path` | Output path for the reduced JUnit XML reports | `string` | `./output/` |
+| `exclude` | Glob pattern to omit from included JUnit XML reports | `string` |  |
+| `version` | Version of [junit-reducer](https://github.com/willgeorgetaylor/junit-reducer/releases) command-line tool to use (e.g., `v1.2.0` or `latest`) | `string` | `latest` |
 
 ### Additional inputs
 
 | Name | Description | Type | Default |
 | :---  | :--- | :--- | :--- |
-| `op-suites-time` | Operation for test suites time. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
-| `op-cases-time` | Operation for test cases time. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
-| `op-suites-assertions` | Operation for test suites assertions. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
-| `op-suites-errors` | Operation for test suites errors. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
-| `op-suites-failed` | Operation for test suites failed. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
-| `op-suites-skipped` | Operation for test suites skipped. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
-| `op-suites-tests` | Operation for test suites tests. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
-| `reduce-suites-by` | Operation for test suites tests. Options: `filepath`, `name` or `name+filepath` | `string` | `name+filepath` |
-| `reduce-cases-by` | Reduce test cases by name, classname, or file. Options: `classname`, `file` or `name` | `string` | `name` |
-| `rounding-mode` | Rounding mode for counts that should be integers. Options: `ceil`, `floor` or `round` | `string` | `round` |
+| `op-suites-time` | Reducer operation for test suite `time` values. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
+| `op-cases-time` | Reducer operation for test case `time` values. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
+| `op-suites-assertions` | Reducer operation for test suite assertion counts. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
+| `op-suites-errors` | Reducer operation for test suite error counts. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
+| `op-suites-failed` | Reducer operation for test suite failure counts. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
+| `op-suites-skipped` | Operation for test suite skipped counts. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
+| `op-suites-tests` | Operation for test suite test counts. Options: `max`, `mean`, `median`, `min`, `mode` or `sum` | `string` | `mean` |
+| `reduce-suites-by` | Specify a key (corresponding to the attribute on the test suite nodes) to group and reduce test suites by. Options: `filepath`, `name` or `name+filepath` | `string` | `name+filepath` |
+| `reduce-cases-by` | Specify a key (corresponding to the attribute on the test case nodes) to group and reduce test cases by. Options: `classname`, `file` or `name` | `string` | `name` |
+| `rounding-mode` | Rounding mode for counts (`assertions`, `errors`, `failed`, `skipped` and `tests`) that should be integers in the final result. Options: `ceil`, `floor` or `round` | `string` | `round` |
 
 ## Example Workflow
 
