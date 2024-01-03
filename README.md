@@ -78,7 +78,7 @@ jobs:
       - name: Reduce reports
         uses: willgeorgetaylor/junit-reducer-action@v1
         with:
-          include: ./reports/**/*
+          include: ./reports/**/*.xml
           output-path: ./average-reports/
 
       # Upload the reduced set of test reports to a dedicated bucket/path.
